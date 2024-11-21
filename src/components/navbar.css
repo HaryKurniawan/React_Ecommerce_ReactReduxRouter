@@ -1,0 +1,136 @@
+/* Styling umum untuk navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 2px -2px gray;
+}
+
+.navbar-logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.navbar-logo a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Styling tombol Hamburger (ikon menu) */
+.navbar-hamburger {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+}
+
+/* Styling untuk link dan tombol di navbar */
+.navbar-links {
+  display: flex;
+  gap: 16px;
+}
+
+.navbar-links a,
+.navbar-links button {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 8px 12px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-links a:hover,
+.navbar-links button:hover {
+  background-color: #575757;
+  border-radius: 4px;
+}
+
+.navbar-links button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-links button:hover {
+  background-color: #0056b3;
+}
+
+/* Styling untuk button Cart dan Logout */
+.btn-cart {
+  background-color: #28a745;
+}
+
+.btn-cart:hover {
+  background-color: #218838;
+}
+
+.btn-logout {
+  background-color: #dc3545;
+}
+
+.btn-logout:hover {
+  background-color: #c82333;
+}
+
+.btn-login {
+  background-color: #007bff;
+}
+
+.btn-login:hover {
+  background-color: #0056b3;
+}
+
+/* Menyembunyikan menu dan tombol hamburger di perangkat mobile */
+@media (max-width: 768px) {
+  .navbar {
+    align-items: flex-start;
+  }
+
+  .navbar-links {
+    display: none; /* Menyembunyikan menu di perangkat mobile */
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .navbar-links.open {
+    display: flex; /* Menampilkan menu jika tombol hamburger diklik */
+  }
+
+  .navbar-hamburger {
+    display: block; /* Menampilkan tombol hamburger */
+  }
+
+  .navbar-cart {
+    display: none; /* Menyembunyikan tombol cart di perangkat mobile */
+  }
+
+  .navbar-links a, .navbar-links button {
+    width: 100%;
+    text-align: left;
+    padding: 12px 20px;
+  }
+}
+
+/* Styling untuk link aktif */
+.navbar-links .active {
+  background-color: #444; /* Warna lebih hitam */
+  font-weight: bold; /* Teks lebih tebal */
+  border-radius: 4px; /* Menambahkan sedikit lekukan */
+  color: white;
+}
+
+/* Untuk link aktif saat di-hover */
+.navbar-links .active:hover {
+  background-color: #555; /* Warna lebih terang saat hover */
+}
