@@ -1,17 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { notification } from 'antd';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
+  // Menampilkan notifikasi saat memasuki halaman login
+  useEffect(() => {
+    notification.info({
+      message: 'Masukkan username dan password',
+      description: 'Masukkan huruf atau kata apapun untuk login.',
+      placement: 'top',
+      duration: 3, // Durasi notifikasi
+      onClose: () => {}, // Menambahkan tombol close di notifikasi
+    });
+  }, []);
+
   const handleLogin = () => {
     if (username && password) {
+      // Simulasi login berhasil
       localStorage.setItem('access_token', 'Token_Berhasil_Login');
+      notification.success({
+        message: 'Berhasil Masuk',
+        description: 'Login berhasil, selamat datang!',
+        placement: 'top',
+        duration: 3, // Durasi notifikasi
+      });
       navigate('/'); // Navigasi ke halaman Home
     } else {
-      alert('Please enter valid username and password');
+      notification.error({
+        message: 'Gagal Login',
+        description: 'Masukkan username dan password yang valid.',
+        placement: 'top',
+        duration: 3, // Durasi notifikasi
+      });
     }
   };
 
